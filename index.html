@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX with PHP Example</title>
+    <script>
+        function sendAJAXRequest() {
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+            
+            // Configure it: GET-request for the URL /process.php
+            xhr.open('GET', 'process.php', true);
+            
+            // Set up a function to handle the response
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Update the content of the 'result' div with the response
+                    document.getElementById('result').innerHTML = xhr.responseText;
+                }
+            };
+            
+            // Send the request
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>My first Program in AJAX with PHP Example</h1>
+    <button onclick="sendAJAXRequest()">Send AJAX Request</button>
+    <div id="result">The result will be displayed here</div>
+</body>
+</html>
